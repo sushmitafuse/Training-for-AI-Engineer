@@ -12,7 +12,7 @@
 * To provide good travel packages to the people at an affordable price. 
 
 ##### 4. What should we know about the domain the company operates in? 
-* Different people prefer different tourism destinations like beach areas, hills and mountains, areas for cultural heritage, etc. Most of the customers reach out to us through online platform like our website and facebook page so, the information in the reviews given by customers on these platform are important to us.
+* Different people prefer different tourism destinations like beach areas, hills and mountains, areas for cultural heritage, etc. Most of the customers reach out to us through online platform like our website and facebook page so, the information in the reviews given by customers on these platform are important to us. Right now, we are tring to work in the domain of Natural Language Processing(NLP) for emotion detection from the text.
 
 ### Context on the Product
 
