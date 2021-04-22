@@ -71,4 +71,4 @@ We can also check if data related to similar projects(emotion detection and sent
 
 ## 4. Performance metrics
 
-For this problem of emotion detection using user feedback, we can use a transfer learning approach for better system performance. We will be using pre trained transformer based model BERT and fine-tune the model on our dataset so that our approach has good generalization and better performance.
+Since the ISEAR dataset we are using has seven classes of emotion with an almost balanced number of instances for each class therefore accuracy metric can be used as the performance metric for our purpose. Beside that various metrics that are derived from the confusion matrix can also be used to support accuracy. For example metrics  such as Precision, Recall, F1 score, Sensitivity, Specificity, Positive Predictive Value(PPV) etc can be used.
