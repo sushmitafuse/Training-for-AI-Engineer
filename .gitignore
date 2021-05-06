@@ -167,3 +167,5 @@ Thumbs.db
 # End of https://www.toptal.com/developers/gitignore/api/vscode,flask
 data/
 model/
+checkpoints/bert/
+checkpoints/bert_en_uncased_L-12_H-768_A-12_2/
