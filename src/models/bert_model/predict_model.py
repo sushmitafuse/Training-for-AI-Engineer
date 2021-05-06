@@ -6,6 +6,10 @@ import numpy as np
 
 from . import tokenize_sentence
 
+import os
+
+path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../../../', 'checkpoints'))
+
 
 mapping = {
     0: 'anger',
@@ -19,14 +23,14 @@ mapping = {
 
 def load_bert():
 # module_url = 'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2'
-  reloaded_model = load_model('/home/sushmita/Documents/7batch /Training-for-AI-Engineer/checkpoints/bert/emotion_detection_bert.h5', custom_objects={'KerasLayer': hub.KerasLayer})
+  reloaded_model = load_model(path + '/bert/emotion_detection_bert.h5', custom_objects={'KerasLayer': hub.KerasLayer})
   return reloaded_model
 
 
 
 def predict_bert(sentence,model):
 # Input to bert_encode should be a list
-  module_url = '/home/sushmita/Documents/7batch /Training-for-AI-Engineer/checkpoints/bert_en_uncased_L-12_H-768_A-12_2'
+  module_url = path + '/bert_en_uncased_L-12_H-768_A-12_2'
   bert_layer = hub.KerasLayer(module_url, trainable=True)
   vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
   do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
