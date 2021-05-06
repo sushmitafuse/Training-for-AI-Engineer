@@ -15,19 +15,14 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/emotion_data"
 mongo = PyMongo(app)
 
 tokenizer, model = load_model()
-# bert_model = load_bert()
+bert_model = load_bert()
 
-
-# @app.route("/")
-# def home():
-#     return "This is home"
 
 @app.route("/", methods=["GET", "POST"])
 def predict():
     if request.method == "POST":
         if request.form.get("text"):
             text = request.form.get("text")
-            # mongo.save(text)
             model_name = str(request.form.get("model_name"))
             if model_name == "LSTM":
                 emotion, max_value = predict_emotion(text, tokenizer, model)
@@ -71,22 +66,6 @@ def delete_user(user_id):
         return redirect(url_for('user_list'))
     else:
         return "<h2>Record Not Found</h2>"
-
-
- 
-
-# @app.route("/bert", methods=["GET", "POST"])
-# def bert_predict():
-#     if request.method == "POST":
-#         if request.form.get("text"):
-#             text = request.form.get("text")
-#             # mongo.save(text)
-#             mongo.db.users.insert_one({"text": request.form.get("text")})
-#             emotion = predict_bert(text, bert_model)
-#             print("The predicted emotion is",emotion)
-#         return emotion
-#     else:
-#         return render_template("index.html")
 
 
 if __name__ == "__main__":
