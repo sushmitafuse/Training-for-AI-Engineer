@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_pymongo import PyMongo
 from src.models.train_model import load_model
 from src.models.predict_model import predict_emotion
@@ -46,7 +46,7 @@ def user_list():
         query = request.args
         data = mongo.db.users.find(query)
         data = list(data)
-        print(data)
+
         return render_template("records.html", data=data)
 
 
@@ -59,12 +59,18 @@ def user(user_id):
             data.append(user)
 
         except:
-            stat_msg = {'msg': 'No record found'}
-            status = 404
-
-            return dumps(stat_msg), status
+            return "<h2>Record Not Found</h2>"
 
         return render_template("records.html", data=data)
+    
+
+@app.route('/users/delete/<user_id>', methods=['POST'])
+def delete_user(user_id):
+    db_response = mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+    if db_response.deleted_count == 1:
+        return redirect(url_for('user_list'))
+    else:
+        return "<h2>Record Not Found</h2>"
  
 
 # @app.route("/bert", methods=["GET", "POST"])
