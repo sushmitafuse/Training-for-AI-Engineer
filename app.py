@@ -15,7 +15,7 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/emotion_data"
 mongo = PyMongo(app)
 
 tokenizer, model = load_model()
-# bert_model = load_bert()
+bert_model = load_bert()
 
 
 # @app.route("/")
@@ -71,6 +71,8 @@ def delete_user(user_id):
         return redirect(url_for('user_list'))
     else:
         return "<h2>Record Not Found</h2>"
+
+
  
 
 # @app.route("/bert", methods=["GET", "POST"])
