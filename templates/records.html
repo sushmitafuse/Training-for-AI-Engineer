@@ -11,17 +11,32 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body style="width:60%; margin-left:20%;">
-    <h2 class="text-center">Emotion Classifier</h2>
-    <form action="/" method="post">
-        <input class="form-control" type="text" name="text" placeholder="Text" style="margin-bottom: 5px;">
-        <select class="form-select" aria-label="Default select example" name='model_name'>
-            <option selected>LSTM</option>
-            <option value="1">BERT</option>
-        </select>
-        <input class="btn btn-primary" type="submit" value="Make prediction">
-    </form>
-    <!-- {% if sentiment %}
-        <p>The sentiment of the text is: {{sentiment}}</p>
-    {% endif %} -->
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Text</th>
+            <th scope="col">Model</th>
+            <th scope="col">Emotion</th>
+            <th scope="col">Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            ``<tr>
+                <td>{{ item['_id'] }}</td>
+                <td>{{ item['text'] }}</td>
+                <td>{{ item['model'] }}</td>
+                <td>{{ item['emotion'] }}</td>
+                <td>{{ item['confidence'] }}</td>
+                <td>
+                    <form method="post" action="{{ url_for('delete_user', user_id=item['_id']) }}">
+                        <input class="btn btn-danger" type="submit" name="delete" value="Delete">
+                    </form>
+                </td>
+              </tr>
+            {% endfor %}
+        </tbody>
+      </table>
 </body>
 </html>
