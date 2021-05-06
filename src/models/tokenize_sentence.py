@@ -1,19 +1,5 @@
-import tensorflow_hub as hub
-import tokenization
+import numpy as np
 
-
-print("Module url loading...")
-print('---------------------------------------------')
-# module_url = 'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2'
-module_url = '../../checkpoints/bert_en_uncased_L-12_H-768_A-12_2'
-bert_layer = hub.KerasLayer(module_url, trainable=True)
-print('Module loaded')
-
-vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
-do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
-print('FullTokenizer starting')
-tokenizer = tokenization.FullTokenizer(vocab_file, do_lower_case)
-print('FullTokenizer completed')
 
 # For encoding the input sentences into required format for BERT
 
