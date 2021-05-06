@@ -30,7 +30,7 @@ def predict():
             # mongo.save(text)
             model_name = str(request.form.get("model_name"))
             if model_name == "LSTM":
-                emotion = predict_emotion(text, tokenizer, model)
+                emotion, max_value = predict_emotion(text, tokenizer, model)
             else:
                 emotion, max_value = predict_bert(text, bert_model)
             
