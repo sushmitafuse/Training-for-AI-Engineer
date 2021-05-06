@@ -39,7 +39,9 @@ def predict_bert(sentence,model):
   train_input = tokenize_sentence.bert_encode(list(sentence), tokenizer, max_len=MAX_LEN)
   pred = model.predict(train_input)
   result = []
+  max_value = 0
   for value in pred:
+    max_value = max(value)
     result.append(mapping[np.argmax(value)])
-  return result[0]
+  return result[0], max_value
   

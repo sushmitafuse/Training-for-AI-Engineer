@@ -15,7 +15,7 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/emotion_data"
 mongo = PyMongo(app)
 
 tokenizer, model = load_model()
-bert_model = load_bert()
+# bert_model = load_bert()
 
 
 # @app.route("/")
@@ -32,9 +32,9 @@ def predict():
             if model_name == "LSTM":
                 emotion = predict_emotion(text, tokenizer, model)
             else:
-                emotion = predict_bert(text, bert_model)
+                emotion, max_value = predict_bert(text, bert_model)
             
-            mongo.db.users.insert_one({"text": request.form.get("text"), "model": model_name, "emotion": emotion})
+            mongo.db.users.insert_one({"text": request.form.get("text"), "model": model_name, "emotion": emotion, "confidence": max_value})
         return render_template("result.html", emotion=emotion)
     else:
         return render_template("index.html")
