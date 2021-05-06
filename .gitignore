@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vscode,flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=vscode,flask
 
+### Checkpoints ### Flask
+checkpoints/
+
 ### Flask ###
 instance/*
 !instance/.gitignore
