@@ -41,7 +41,7 @@ def predict_bert(sentence,model):
   result = []
   max_value = 0
   for value in pred:
-    max_value = max(value)
+    max_value = float(max(value))
     result.append(mapping[np.argmax(value)])
   return result[0], max_value
   
