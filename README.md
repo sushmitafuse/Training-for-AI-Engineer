@@ -7,15 +7,15 @@
 
 1. Create new poetry environment 
 
-         ```poetry shell ```
+        poetry shell
 
 2. Use `poetry` to install the dependencies
 
-        ```poetry install```    
+        poetry install    
 
 ## Running only the project logic
 
-        ```flask run```
+ 1.      flask run
 
 ## Route for API with front-end
 1. ```/``` :            Frontend for making predictions
