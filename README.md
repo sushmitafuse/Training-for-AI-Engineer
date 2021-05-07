@@ -1,6 +1,6 @@
 # Training-for-AI-Engineer
 
-#### This project is built as a part of Training for AI Engineers at fusemachines. Dataset used in this project is ISEAR dataset. Dataset consist of 7 classes of emotion. It has been used for multi-class classification project. We have implemented BERT and LSTM with Glove embeddings as our classifier.
+This project is built as a part of Training for AI Engineers at fusemachines. Dataset used in this project is ISEAR dataset. Dataset consist of 7 classes of emotion. It has been used for multi-class classification project. We have implemented BERT and LSTM with Glove embeddings as our classifier.
 
 
 ## Installing the dependencies
